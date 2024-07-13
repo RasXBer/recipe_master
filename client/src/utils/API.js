@@ -1,14 +1,16 @@
 import axios from 'axios';
-import dotenv from 'react-dotenv';
 
+// Access environment variables directly using import.meta.env
+const API_KEY = import.meta.env.VITE_API_KEY;
 
+// Function to fetch recipes
 export const fetchRecipes = async (query) => {
   try {
-    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${dotenv.API_KEY}`, {
-      // params: {
-      //   apiKey: dotenv.API_KEY,
-      //   // query: query
-      // }
+    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch`, {
+      params: {
+        query: query,
+        apiKey: API_KEY
+      }
     });
 
     return response.data.results; // Adjust based on Spoonacular API response structure

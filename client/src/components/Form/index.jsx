@@ -8,7 +8,7 @@ function Form() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isSignUp, setIsSignUp] = useState(true); // Add state to toggle between signup and signin
+  const [isSignUp, setIsSignUp] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +36,10 @@ function Form() {
     try {
       const response = await fetch(isSignUp ? '/api/users' : '/api/users/login', {
         method: isSignUp ? 'POST' : 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}` // Use API key here
+        },
         body: JSON.stringify({ email, username: userName, password }),
       });
 
@@ -48,10 +51,8 @@ function Form() {
           setPassword('');
           setEmail('');
         } else {
-          // Save token and other user data in localStorage or context
           localStorage.setItem('authToken', result.token);
           alert('Login successful');
-          // Redirect to the Recipe page on successful login
           window.location.href = '/Recipe';
         }
       } else {
