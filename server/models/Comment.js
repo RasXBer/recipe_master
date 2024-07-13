@@ -1,4 +1,4 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const commentSchema = new Schema(
   {
@@ -19,4 +19,8 @@ const commentSchema = new Schema(
       default: Date.now },
 });
 
-module.exports = responseSchema;
+// module.exports = commentSchema;
+
+const Comment = model('Comment', commentSchema);
+
+module.exports = Comment;

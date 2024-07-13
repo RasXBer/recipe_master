@@ -1,33 +1,31 @@
-const User = require('../models/User');
+// controllers/userController.js
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET = 'your_jwt_secret'; // Ensure to use environment variables for secrets
 
 module.exports = {
-  async getUsers(req, res) {
-    try {
-      const users = await User.find();
-      res.json(users);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
-  async getSingleUser(req, res) {
-    try {
-      const user = await User.findOne({ _id: req.params.userId })
-        .select('-__v');
-
-      if (!user) {
-        return res.status(404).json({ message: 'No user with that ID' });
-      }
-
-      res.json(user);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
-  // create a new user
   async createUser(req, res) {
     try {
-      const dbUserData = await User.create(req.body);
+      const { email, username, password } = req.body;
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const dbUserData = await User.create({ email, username, password: hashedPassword });
       res.json(dbUserData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+
+  async loginUser(req, res) {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+      if (!user || !(await bcrypt.compare(password, user.password))) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+      }
+      // Generate a JWT token
+      const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+      res.json({ token });
     } catch (err) {
       res.status(500).json(err);
     }

@@ -31,7 +31,7 @@ const recipeSchema = new Schema(
 
  
 
-// Initialize our Video model
-const Recipe = model('recipe', recipeSchema);
+// Initialize our Recipe model
+const Recipe = model('Recipe', recipeSchema);
 
 module.exports = Recipe;
