@@ -9,9 +9,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173, // Ensure this matches the port you're trying to access
-    watch: {
-      usePolling: true, // Enable polling if you're having issues with file watching
-    },
-  },
+    port: 3000,
+    open: true,
+    proxy: {
+      '/graphql': {
+        target: 'http://localhost:3001',
+        secure: false,
+        changeOrigin: true
+      }
+    }
+  }
 });

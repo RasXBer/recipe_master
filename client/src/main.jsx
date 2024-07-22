@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+// import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import App from './App';
 import './index.css';
 
@@ -14,10 +14,10 @@ import About from './pages/About';
 import SignIn from './pages/SignIn';
 
 // Create Apollo Client
-const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql', // Replace with your GraphQL endpoint
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   uri: 'http://localhost:3001/graphql', // Replace with your GraphQL endpoint
+//   cache: new InMemoryCache(),
+// });
 
 // Define the accessible routes
 const router = createBrowserRouter([
@@ -34,10 +34,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ApolloProvider client={client}> {/* Wrap with ApolloProvider */}
-      <RouterProvider router={router} />
-    </ApolloProvider>
-  </React.StrictMode>,
+  <RouterProvider router={router} />
 );
