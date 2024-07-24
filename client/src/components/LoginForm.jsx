@@ -1,22 +1,20 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { SIGNUP_USER } from '../utils/mutations';
-
+import { SIGNIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 import './Signup.css';
 
-function SignUpForm() {
+function LoginForm() {
   const [userFormData, setUserFormData] = useState({
-    username: '',
     email: '',
     password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
+ 
+const [login, {error}] = useMutation(SIGNIN_USER)
 
-const [signUp, {error}] = useMutation(SIGNUP_USER)
-
-const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
@@ -27,13 +25,12 @@ console.log({...userFormData});
  
 
     try {
-      const { data } = await signUp({
+      const { data } = await login({
         variables: { ...userFormData },
       });
 
       console.log(data);
-      Auth.login(data.signUp.token);
-    
+      Auth.login(data.login.token);
 
 } catch (err) {
 console.error('Error during form submission:', err);
@@ -43,7 +40,7 @@ setErrorMessage(err.message || 'An error occurred');
 
   return (
     <div className="container text-center">
-      <h1>Sign Up </h1>
+      <h1>Log In </h1>
       <form className="form" onSubmit={handleFormSubmit}>
         <input
           name="email"
@@ -52,14 +49,6 @@ setErrorMessage(err.message || 'An error occurred');
           placeholder="Email"
           value={userFormData.email}
         />
-          <input
-            name="username"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Username"
-            value={userFormData.username}
-          />
-      
         <input
           name="password"
           onChange={handleInputChange}
@@ -67,7 +56,7 @@ setErrorMessage(err.message || 'An error occurred');
           placeholder="Password"
           value={userFormData.password}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Sign In</button>
 
       </form>
       {errorMessage && (
@@ -79,4 +68,4 @@ setErrorMessage(err.message || 'An error occurred');
   );
 }
 
-export default SignUpForm;
+export default LoginForm;

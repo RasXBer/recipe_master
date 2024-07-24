@@ -20,6 +20,18 @@ const typeDefs = `
     signUp(username: String!, email: String!, password: String!): AuthPayload
     login(email: String!, password: String!): AuthPayload
   }
+
+   type Recipe {
+    id: ID!
+    title: String!
+    image: String
+    sourceName: String
+    sourceUrl: String
+  }
+
+  type Query {
+    recipes(query: String!): [Recipe!]!
+  }
 `;
 
 module.exports = typeDefs;

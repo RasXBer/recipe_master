@@ -8,10 +8,10 @@ import LogoutButton from './LogoutButton';
 function NavBar() {
   const currentPage = useLocation().pathname;
   // const isLoggedIn = Boolean(localStorage.getItem('authToken'));
-  const isLoggedIn = Auth.loggedIn(); // Check authentication status
+  const isLoggedIn = Auth.loggedIn(); 
 
   const handleLogout = () => {
-    Auth.logout(); // Call logout method from AuthService
+    Auth.logout(); 
   };
 
   return (

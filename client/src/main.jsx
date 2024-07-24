@@ -12,12 +12,7 @@ import Recipe from './pages/Recipe';
 import Blog from './pages/Blog';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
-
-// Create Apollo Client
-// const client = new ApolloClient({
-//   uri: 'http://localhost:3001/graphql', // Replace with your GraphQL endpoint
-//   cache: new InMemoryCache(),
-// });
+// import LoginIn from './components/LoginForm'
 
 // Define the accessible routes
 const router = createBrowserRouter([
@@ -30,6 +25,7 @@ const router = createBrowserRouter([
       { path: '/Blog', element: <Blog /> },
       { path: '/About', element: <About /> },
       { path: '/SignIn', element: <SignIn /> },
+      // { path: '/LogIn', element: <LoginIn /> },
     ],
   },
 ]);

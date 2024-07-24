@@ -8,4 +8,15 @@ export const QUERY_PROFILES = gql`
         username
     }
   }
+`
+export const GET_RECIPES = gql`
+  query GetRecipes($query: String!) {
+    recipes(query: $query) {
+      id
+      title
+      image
+      sourceName
+      SourceUrl
+    }
+  }
 `;
