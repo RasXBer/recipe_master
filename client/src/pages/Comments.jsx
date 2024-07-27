@@ -1,9 +1,9 @@
 export default function Blog() {
     return (
       <div>
-        <h1>Blog Page</h1>
+        <h1>Add comments</h1>
         <p>
-        Blog posts
+        Comments
         </p>
       </div>
     );
