@@ -16,21 +16,25 @@ const typeDefs = `
     users: [User] # Return a list of users if needed
   }
 
+  type Recipe {
+    id: ID!
+    title: String!
+    ingredients: [String]!
+    instructions: String!
+    tags: [String]
+  }
+
   type Mutation {
     signUp(username: String!, email: String!, password: String!): AuthPayload
     login(email: String!, password: String!): AuthPayload
-  }
-
-   type Recipe {
-    id: ID!
-    title: String!
-    image: String
-    sourceName: String
-    sourceUrl: String
+    addRecipe(title: String!, ingredients: [String]!, instructions: String!, tags: [String]): Recipe
+    deleteRecipe(id: ID!): Recipe
   }
 
   type Query {
     recipes(query: String!): [Recipe!]!
+
+  StoredRecipes: [Recipe]
   }
 `;
 

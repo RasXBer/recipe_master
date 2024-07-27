@@ -6,16 +6,6 @@ import { useState } from 'react';
 // import AuthForm from '../components/AuthForm';
 
 function SignIn() {
-//   return (
-//     <div>
-//       <h1>Sign in here</h1>
-//       <SignUpForm />
-//       <LoginForm />
-//     </div>
-//   );
-// }
-
-// export default SignIn;
 
 const [isSignUp, setIsSignUp] = useState(false);
 

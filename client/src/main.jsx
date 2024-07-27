@@ -12,10 +12,12 @@ import Recipe from './pages/Recipe';
 import Blog from './pages/Blog';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
+import StoredRecipes from './pages/StoredRecipes';
 // import LoginIn from './components/LoginForm'
 
 // Define the accessible routes
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
   {
     path: '/',
     element: <App />,
@@ -25,10 +27,12 @@ const router = createBrowserRouter([
       { path: '/Blog', element: <Blog /> },
       { path: '/About', element: <About /> },
       { path: '/SignIn', element: <SignIn /> },
-      // { path: '/LogIn', element: <LoginIn /> },
+      { path: '/Stored-recipes', element: <StoredRecipes/>},
+       // { path: '/LogIn', element: <LoginIn /> },
     ],
   },
-]);
+]
+);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

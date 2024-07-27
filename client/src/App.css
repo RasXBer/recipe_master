@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+.main-content {
+  padding-top: 4rem; /* Ensure main content starts below the fixed navbar */
+}

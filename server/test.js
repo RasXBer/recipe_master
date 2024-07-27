@@ -14,8 +14,6 @@ db.once('open', async () => {
     // Create a new Recipe
     const recipe = await Recipe.create({
       title: 'Test Recipe',
-      author: user._id,
-      description: 'Delicious',
       ingredients: ['ingredient1'],
       instructions: 'Cook it',
       tags: ['test']
