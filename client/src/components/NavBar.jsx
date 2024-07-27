@@ -59,10 +59,10 @@ function NavBar() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    to="/Blog"
+                    to="/Comments"
                     className={currentPage === '/Blog' ? 'nav-link active' : 'nav-link'}
                   >
-                    Blog
+                    Comments
                   </Link>
                 </li>
                 <li className="nav-item">

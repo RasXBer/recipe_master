@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './pages/Home';
 import Recipe from './pages/Recipe';
-import Blog from './pages/Blog';
+import Comments from './pages/Comments';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
 import StoredRecipes from './pages/StoredRecipes';
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     children: [
       { index: true, element: <Home /> },
       { path: '/Recipe', element: <Recipe /> },
-      { path: '/Blog', element: <Blog /> },
+      { path: '/Comments', element: <Comments /> },
       { path: '/About', element: <About /> },
       { path: '/SignIn', element: <SignIn /> },
       { path: '/Stored-recipes', element: <StoredRecipes/>},
