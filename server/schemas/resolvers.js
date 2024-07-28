@@ -61,7 +61,7 @@ const resolvers = {
           ingredients,
           instructions,
           tags,
-          // Add other fields as needed
+          
         });
 
         return newRecipe;
@@ -96,7 +96,7 @@ const resolvers = {
           }
         );
 
-        return response.data.results; // Adjust based on Spoonacular API response structure
+        return response.data.results; // Spoonacular API response structure
       } catch (error) {
         console.error("Error fetching recipes:", error);
         throw new Error("Failed to fetch recipes from Spoonacular API");

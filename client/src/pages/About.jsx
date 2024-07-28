@@ -1,10 +1,10 @@
 export default function About() {
-    return (
-      <div>
-        <h1>About Page</h1>
-        <p>
-        All about us
-        </p>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Who we are</h1>
+      <p>
+      This is a platform where you can discover and share delicious recipes from around the world!
+      </p>
+    </div>
+  );
+}

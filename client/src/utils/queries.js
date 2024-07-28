@@ -16,7 +16,7 @@ export const GET_RECIPES = gql`
       title
       image
       sourceName
-      SourceUrl
+      spoonacularSourceUrl
     }
   }`;
 

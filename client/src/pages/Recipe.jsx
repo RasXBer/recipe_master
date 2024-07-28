@@ -87,10 +87,10 @@ const Recipe = () => {
                     className="card-img-top"
                     alt={recipe.title}
                     style={{ cursor: 'pointer' }}
-                    onClick={() => openRecipeUrl(recipe.sourceUrl)}
+                    onClick={() => openRecipeUrl(recipe.spoonacularSourceUrl)}
                   />
                   <div className="card-body">
-                    <h5 className="card-title" style={{ cursor: 'pointer' }} onClick={() => openRecipeUrl(recipe.sourceUrl)}>
+                    <h5 className="card-title" style={{ cursor: 'pointer' }} onClick={() => openRecipeUrl(recipe.spoonacularSourceUrl)}>
                       {recipe.title}
                     </h5>
                     <p className="card-text">Source: {recipe.sourceName}</p>

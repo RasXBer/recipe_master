@@ -15,7 +15,7 @@ const toggleForm = () => {
 
 return (
   <div>
-    <h1>{isSignUp ? 'Sign Up' : 'Sign In'} here</h1>
+    <h1>{isSignUp ? 'Get Started' : 'Access Now'}</h1>
     {isSignUp ? <SignUpForm /> : <LoginForm />}
     <button onClick={toggleForm}>
       {isSignUp ? 'Switch to Sign In' : 'Switch to Sign Up'}

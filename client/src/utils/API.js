@@ -28,7 +28,7 @@ export const fetchRecipes = async (query) => {
           }
         });
         
-        const { title, image, sourceName, sourceUrl } = detailsResponse.data;
+        const { title, image, sourceName, spoonacularSourceUrl } = detailsResponse.data;
 
           // Check if sourceName is foodista.com and skip those recipes
           if (sourceName && sourceName.toLowerCase().includes('foodista')) {
@@ -36,11 +36,11 @@ export const fetchRecipes = async (query) => {
           }      
         
         // Check if sourceUrl is valid (you can add more specific checks if needed)
-        if (!sourceUrl || sourceUrl.trim() === '' || sourceUrl.includes('timeout')) {
+        if (!spoonacularSourceUrl || spoonacularSourceUrl.trim() === '' || spoonacularSourceUrl.includes('timeout')) {
           return null; // Skip this recipe
         }
 
-        return { id: recipe.id, title, image, sourceName, sourceUrl };
+        return { id: recipe.id, title, image, sourceName, spoonacularSourceUrl };
       } catch (error) {
         console.error('Error fetching recipe details:', error);
         return null; // Skip this recipe on error
