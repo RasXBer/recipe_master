@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-// const User = require('../models/User');
 const { GraphQLError } = require('graphql');
 
 const SECRET_KEY = process.env.SECRET_KEY; // .env secret key
@@ -18,7 +17,7 @@ module.exports = {
     // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
-    // We split the token string into an array and return actual token. Parse token from Authorization header if present
+    // split the token string into an array and return actual token. Parse token from Authorization header if present
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
     }
@@ -39,10 +38,7 @@ module.exports = {
     return req;
   },
   
-  // signToken: function ({ email, name, _id }) {
-  //   const payload = { email, name, _id };
-
-   // Function to sign JWT token with user data
+    // Function to sign JWT token with user data
    signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };  
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });

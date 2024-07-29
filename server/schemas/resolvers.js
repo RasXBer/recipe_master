@@ -114,30 +114,5 @@ const resolvers = {
   },
 };
 
-// Query: {
-//   recipes: async (_, { query }) => {
-//     try {
-//       const response = await axios.get(`https://api.edamam.com/search`, {
-//         params: {
-//           q: query,
-//           app_id: API_ID,
-//           app_key: API_KEY
-//         }
-//       });
-
-//       return response.data.hits.map(hit => ({
-//         id: hit.recipe.uri,
-//         title: hit.recipe.label,
-//         image: hit.recipe.image,
-//         sourceName: hit.recipe.source,
-//         sourceUrl: hit.recipe.url
-//       }));
-//     } catch (error) {
-//       console.error('Error fetching recipes:', error);
-//       throw new Error('Failed to fetch recipes from Edamam API');
-//     }
-//   },
-// },
-// };
 
 module.exports = resolvers;

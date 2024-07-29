@@ -56,33 +56,3 @@ export const fetchRecipes = async (query) => {
     return []; // Return empty array or handle error as needed
   }
 };
-
-//     return response.data.results; // Adjust based on Spoonacular API response structure
-//   } catch (error) {
-//     console.error('Error fetching recipes:', error);
-//     return []; // Return empty array or handle error as needed
-//   }
-// };
-
-// export const fetchRecipes = async (query) => {
-//   try {
-//     const response = await axios.get(`https://api.edamam.com/api/recipes/v2`, {
-//       params: {
-//         q: query,
-//         app_id: API_ID,
-//         app_key: API_KEY
-//       }
-//     });
-
-//     return response.data.hits.map(hit => ({
-//       id: hit.recipe.uri,
-//       title: hit.recipe.label,
-//       image: hit.recipe.image,
-//       sourceName: hit.recipe.source,
-//       sourceUrl: hit.recipe.url
-//     }));
-//   } catch (error) {
-//     console.error('Error fetching recipes:', error);
-//     throw error; // Propagate the error so it can be handled in the component
-//   }
-// };

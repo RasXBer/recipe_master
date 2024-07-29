@@ -1,7 +1,7 @@
-// import React from 'react';
+
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
 import App from './App';
 import './index.css';
 
@@ -13,7 +13,7 @@ import Comments from './pages/Comments';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
 import StoredRecipes from './pages/StoredRecipes';
-// import LoginIn from './components/LoginForm'
+
 
 // Define the accessible routes
 const router = createBrowserRouter(
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       { path: '/About', element: <About /> },
       { path: '/SignIn', element: <SignIn /> },
       { path: '/Stored-recipes', element: <StoredRecipes/>},
-       // { path: '/LogIn', element: <LoginIn /> },
+    
     ],
   },
 ]
